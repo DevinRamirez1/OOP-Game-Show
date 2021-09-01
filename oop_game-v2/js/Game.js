@@ -9,20 +9,19 @@ class Game {
     constructor() {
         this.missed = 0;
         this.phrases = [
-            "Slow and Steady",
-            "A Piece of Cake",
-            "Break a Leg",
-            "Been There Dont That",
-            "Thats More Like It"
+            new Phrase("Slow and Steady"),
+            new Phrase("A Piece of Cake"),
+            new Phrase("Break a Leg"),
+            new Phrase("Been There Dont That"),
+            new Phrase("Thats More Like It"),
         ];
         this.activePhrase = null;
-        const phrase = new Phrase();
     }
 
     //method to start game
     startGame(){
         let startScreen = document.getElementById('overlay');
-        startScreen.display = 'none';
+        startScreen.style.display = 'none';
         this.activePhrase = this.getRandomPhrase();
         phrase.phrase = this.activePhrase
         phrase.phrase.addPhraseToDisplay();
