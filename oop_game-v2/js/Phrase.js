@@ -36,8 +36,19 @@ class Phrase {
     }
 
     //shows the letters that have been matched
-    showMatchedLetter() {
-        selectedLetter.classList.remove('hide');
-        selectedLetter.classList.add('show')
+    showMatchedLetter(letter) {
+        const letterList = document.getElementsByTagName('li');
+        const selectedLetter = letter;
+        let correctLetter;
+        for (let i = 0; i < letterList.length; i++){
+            if (letterList[i].textContent === selectedLetter){
+                correctLetter = letterlist[i].textContent;
+            for (const element of correctLetter){
+                element.textContent = `${letter}`;
+                element.classList.remove('hide');
+                element.classList.add('show');
+            }
+        }
     }
+}
 }
