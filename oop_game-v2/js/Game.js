@@ -43,12 +43,14 @@ class Game {
 
         if (this.activePhrase.checkLetter(e.textContent)){
             e.classList.add('chosen');
-            this.activePhrase.showMatchedLetter(e.target);
+            e.disabled = true;
+            this.activePhrase.showMatchedLetter(e.textContent);
             if(this.checkForWin()){
                 this.gameOver(win, "Congratulations! You guessed the phrase!")
             }
         } else {
             e.classList.add('wrong');
+            e.disabled = true;
             this.removeLife();
         }
     }
