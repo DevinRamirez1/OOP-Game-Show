@@ -41,14 +41,14 @@ class Game {
             }
         })
 
-        if (this.activePhrase.checkLetter(e.target)){
-            e.target.classList.add('chosen');
+        if (this.activePhrase.checkLetter(e.textContent)){
+            e.classList.add('chosen');
             this.activePhrase.showMatchedLetter(e.target);
             if(this.checkForWin()){
                 this.gameOver(win, "Congratulations! You guessed the phrase!")
             }
         } else {
-            e.target.classList.add('wrong');
+            e.classList.add('wrong');
             this.removeLife();
         }
     }
