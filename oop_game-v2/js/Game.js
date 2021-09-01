@@ -36,8 +36,8 @@ class Game {
     handleInteraction(e) {
         let qwerty = document.getElementById('qwerty');
         qwerty.addEventListener('click', e => {
-            if (e.target.tagName === 'BUTTON'){
-                e.target.disabled = true;
+            if (e.tagName === 'BUTTON'){
+                e.disabled = true;
             }
         })
 
