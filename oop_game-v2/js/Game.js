@@ -2,6 +2,8 @@
  * Project 4 - OOP Game App
  * Game.js */
 
+
+
 //class for the Game array
 class Game {
     constructor() {
@@ -14,15 +16,16 @@ class Game {
             "Thats More Like It"
         ];
         this.activePhrase = null;
+        const phrase = new Phrase();
     }
 
     //method to start game
     startGame(){
         let startScreen = document.getElementById('overlay');
-        let randomPhrase = getRandomPhrase();
         startScreen.display = 'none';
-        this.activePhrase = randomPhrase;
-        this.activePhrase.addPhraseToDisplay();
+        this.activePhrase = this.getRandomPhrase();
+        phrase.phrase = this.activePhrase
+        phrase.phrase.addPhraseToDisplay();
     }
 
     //gets random phrase from game class
