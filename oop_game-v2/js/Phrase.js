@@ -32,7 +32,7 @@ class Phrase {
 
     //checks if letter selected matches letter in phrase
     checkLetter(selected) {
-        return this.phrase.includes(selected.textContent)
+        return this.phrase.includes(selected);
     }
 
     //shows the letters that have been matched
