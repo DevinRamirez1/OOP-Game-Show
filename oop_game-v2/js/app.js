@@ -5,7 +5,7 @@
 //variables for app.js
 const game = new Game();
 const startButton = document.getElementById('btn__reset');
-let keys = document.getElementsByClassName('key')
+const keys = document.getElementById('qwerty')
 
 //eventlistener for the start button
 startButton.addEventListener('click', e => {
