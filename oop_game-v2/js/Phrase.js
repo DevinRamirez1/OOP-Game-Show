@@ -5,7 +5,7 @@
 //class for phrase
 class Phrase {
     constructor() {
-        this.phrase = phrase.toLocaleLowerCase();
+        this.phrase = phrase.toLowerCase();
 
     }
 
