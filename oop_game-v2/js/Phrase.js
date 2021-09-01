@@ -6,28 +6,33 @@
 class Phrase {
     constructor(phrase) {
         this.phrase = phrase.toLowerCase();
+        this.letters = this.phrase.split("");
 
     }
 
     //method to add phrases to html
     addPhraseToDisplay() {
-        const phraseSection = document.getElementById('phrase');
-        let phraseLi = document.createElement('li');
-        for (let i = 0; i < this.phrase.length; i++){
-            if (this.phrase[i] != ' '){
-                phraseLi.classList.add('hide','letter',this.phrase[i]);
-                phraseLi.innerHTML = this.phrase[i];
+        const phraseSection = document.querySelector('div > ul');
+        
+        this.letters.forEach(letter => {
+            let phraseLi = document.createElement('li');
+            if(letter != " "){
+                phraseLi.className = `hide letter ${letter}`;
+                phraseLi.textContent = '?';
+                phraseSection.appendChild(phraseLi);
             } else {
-                phraseLi.classList.add('space');
+                phraseLi.className = 'space';
+                phraseLi.textContent = `${letter}`;
+                phraseSection.appendChild(phraseLi);
             }
-            phraseSection.appendChild(phraseLi);
+        })
+
         }
-    }
+    
 
     //checks if letter selected matches letter in phrase
     checkLetter(selected) {
-        if (this.phrase.includes(selected.textContent));
-        return true;
+        return this.phrase.includes(selected.textContent)
     }
 
     //shows the letters that have been matched
