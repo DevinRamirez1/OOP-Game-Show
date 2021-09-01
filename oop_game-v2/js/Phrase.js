@@ -23,4 +23,16 @@ class Phrase {
             phraseSection.appendChild(phraseLi);
         }
     }
+
+    //checks if letter selected matches letter in phrase
+    checkLetter(selected) {
+        if (this.phrase.includes(selected.textContent));
+        return true;
+    }
+
+    //shows the letters that have been matched
+    showMatchedLetter() {
+        selectedLetter.classList.remove('hide');
+        selectedLetter.classList.add('show')
+    }
 }
