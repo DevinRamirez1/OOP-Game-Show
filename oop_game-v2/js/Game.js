@@ -37,12 +37,11 @@ class Game {
         let qwerty = document.getElementById('qwerty');
         qwerty.addEventListener('click', e => {
             if (e.target.tagName === 'BUTTON'){
-                phrase.checkLetter(e.target);
                 e.target.disabled = true;
             }
         })
 
-        if (checkLetter(e.target) = true){
+        if (this.activePhrase.checkLetter(e.target)){
             e.target.classList.add('chosen');
             this.activePhrase.showMatchedLetter(e.target);
             if(this.checkForWin()){
