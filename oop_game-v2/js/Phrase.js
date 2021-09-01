@@ -4,7 +4,7 @@
 
 //class for phrase
 class Phrase {
-    constructor() {
+    constructor(phrase) {
         this.phrase = phrase.toLowerCase();
 
     }
@@ -14,8 +14,8 @@ class Phrase {
         const phraseSection = document.getElementById('phrase');
         let phraseLi = document.createElement('li');
         for (let i = 0; i < this.phrase.length; i++){
-            if (this.phrase[i] != ''){
-                phraseLi.classList.add('hide', 'letter', this.phrase[i]);
+            if (this.phrase[i] != ' '){
+                phraseLi.classList.add('hide','letter',this.phrase[i]);
                 phraseLi.innerHTML = this.phrase[i];
             } else {
                 phraseLi.classList.add('space');
