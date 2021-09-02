@@ -5,7 +5,7 @@
 //variables for app.js
 const game = new Game();
 const startButton = document.getElementById('btn__reset');
-const keys = document.getElementById('qwerty')
+const keys = document.getElementById('qwerty');
 
 //eventlistener for the start button
 startButton.addEventListener('click', e => {
@@ -14,6 +14,8 @@ startButton.addEventListener('click', e => {
 
 //eventlistener for keys
 keys.addEventListener('click', e => {
+    if(e.target.className === 'key'){
     game.handleInteraction(e.target);
+    }
 })
 
