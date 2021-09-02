@@ -19,3 +19,17 @@ keys.addEventListener('click', e => {
     }
 })
 
+document.addEventListener('keyup', (e) => {
+    const keyCode = e.code;
+    if (game && keyCode.includes('Key')){
+        const key = keyCode.charAt(keyCode.length - 1).toLowerCase();
+        const buttons = document.getElementsByClassName('key');
+        for(const buttonKey of buttons){
+            if(buttonKey.textContent === key && buttonKey.disabled === false){
+             e = buttonKey;
+             game.handleInteraction(e);
+        }
+    }
+}
+})
+
