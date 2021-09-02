@@ -67,6 +67,7 @@ button {
 
 .main-container {
   display: flex;
+  background-color: #2280b6b2;
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
