@@ -12,13 +12,14 @@ startButton.addEventListener('click', e => {
     game.startGame();
 })
 
-//eventlistener for keys
+//eventlistener for keys when clicked
 keys.addEventListener('click', e => {
     if(e.target.className === 'key'){
     game.handleInteraction(e.target);
     }
 })
 
+//event listener to allows player to use keyboard to guess letters
 document.addEventListener('keyup', (e) => {
     const keyCode = e.code;
     if (game && keyCode.includes('Key')){
