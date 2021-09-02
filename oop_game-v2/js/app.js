@@ -3,13 +3,14 @@
  * app.js */
 
 //variables for app.js
-
+let game;
 const startButton = document.getElementById('btn__reset');
 const keys = document.getElementById('qwerty');
 
 //eventlistener for the start button
 startButton.addEventListener('click', e => {
-    const game = new Game();
+    let newGame = new Game();
+    game = newGame;
     game.startGame();
 })
 
