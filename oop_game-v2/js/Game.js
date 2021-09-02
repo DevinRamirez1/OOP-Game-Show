@@ -12,7 +12,7 @@ class Game {
             new Phrase("Slow and Steady"),
             new Phrase("A Piece of Cake"),
             new Phrase("Break a Leg"),
-            new Phrase("Been There Dont That"),
+            new Phrase("Been There Done That"),
             new Phrase("Thats More Like It"),
         ];
         this.activePhrase = null;
@@ -46,7 +46,9 @@ class Game {
             e.disabled = true;
             this.activePhrase.showMatchedLetter(e.textContent);
             if(this.checkForWin()){
-                this.gameOver(win, "Congratulations! You guessed the phrase!")
+                let message = "Congratulations! You guessed the phrase!";
+                let result = 'win';
+                this.gameOver(result, message);
             }
         } else {
             e.classList.add('wrong');
@@ -62,7 +64,9 @@ class Game {
         this.missed += 1
 
         if (this.missed === 5){
-            this.gameOver(lose, "You didn't correctly guess the phrase, better luck next time!");
+            let message = "You didn't correctly guess the phrase, better luck next time!"
+            let result = 'lose';
+            this.gameOver(result, message);
         }
     }
 
@@ -73,14 +77,34 @@ class Game {
 
     //implements a game win or lose depending on outcome
     gameOver(result, message){
+        const overlay = document.getElementById('overlay');
+        const heading = document.getElementById('game-over-message');
+        overlay.style.display ='block';
+        overlay.className = `${result}`;
+        heading.textContent = `${message}`;
 
-        document.getElementById('overlay').classList.replace('start', result);
-        document.getElementById('overlay').style.display = 'block';
-        document.getElementById('game-over-message').textContent = message;
-        document.getElementById('phrase').innerHTML = '';
-        let hearts = document.getElementsByClassName('tries');
+        this.resetGame();
+    }
 
-        hearts.forEach(heart => heart.firstElementChild.src = "images/liveHeart.png");
+    resetGame() {
+        const phrase = document.getElementById('phrase');
+        const keys = document.querySelectorAll('.key');
+        const hearts = document.getElementsByClassName('tries'); 
+
         this.missed = 0;
+
+        phrase.firstElementChild.innerHTML = '';
+
+        for (let i = 0; i < hearts.length; i++){
+            hearts[i].firstElementChild.src = "images/liveHeart.png";
+            hearts[i].firstElementChild.alt = "Heart Icon";
+        }
+
+
+
+        for (let i = 0; i < keys.length; i++){
+            keys[i].className = 'key';
+            keys[i].disabled = false;
+        }
     }
 }
