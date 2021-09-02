@@ -86,6 +86,7 @@ class Game {
         this.resetGame();
     }
 
+    //method to reset the game board after a completed game
     resetGame() {
         const phrase = document.getElementById('phrase');
         const keys = document.querySelectorAll('.key');
