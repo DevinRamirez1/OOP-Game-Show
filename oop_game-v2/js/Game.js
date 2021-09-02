@@ -25,6 +25,11 @@ class Game {
         this.activePhrase = this.getRandomPhrase();
         phrase.phrase = this.activePhrase
         phrase.phrase.addPhraseToDisplay();
+        const keys = document.querySelectorAll('.key');
+        for (let i = 0; i < keys.length; i++){
+            keys[i].className = 'key';
+            keys[i].disabled = false;
+        }
     }
 
     //gets random phrase from game class
@@ -105,7 +110,7 @@ class Game {
 
         for (let i = 0; i < keys.length; i++){
             keys[i].className = 'key';
-            keys[i].disabled = false;
+            keys[i].disabled = true;
         }
     }
 }
